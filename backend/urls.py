@@ -21,8 +21,11 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #REG NEW USER
     path("api/user/register", CreateUserView.as_view(), name="register"),
+    #LOGIN 
     path("api/token", TokenObtainPairView.as_view(), name="get_token"),
+    #REFRESH ACCESS TOKEN
     path("api/token/refresh", TokenRefreshView.as_view(), name="refresh"),
     path("api-auth", include("rest_framework.urls")),
     path("api/", include("api.urls"))
